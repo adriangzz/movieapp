@@ -1,7 +1,7 @@
 import Layout from "../components/layout/Layout";
 import Link from "next/link";
 
-export default function Home({ movies }) {
+export default function Search({ movies }) {
   return (
     <Layout>
       <div className="movieContainer">
@@ -25,7 +25,8 @@ export default function Home({ movies }) {
 }
 
 export async function getServerSideProps(context) {
-  const call = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.API_KEY}`;
+  const query = context.query.q;
+  const call = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${query}`;
   const response = await fetch(call);
   const movies = await response.json();
   return {

@@ -1,9 +1,7 @@
 import React from "react";
 import Layout from "../../components/layout/Layout";
-import Image from "next/image";
 
 export default function Movie({ movie }) {
-  console.log(movie);
   return (
     <Layout>
       <div className="movieIndividual">
