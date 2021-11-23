@@ -9,9 +9,9 @@ const preventDefault = (f) => (e) => {
   f(e);
 };
 
-const Layout = ({ children, action = "/search" }) => {
+const Layout = ({ children, action = "/search", q = "" }) => {
   const router = useRouter();
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(q);
 
   const handleParam = (setValue) => (e) => setValue(e.target.value);
 

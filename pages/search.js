@@ -1,9 +1,9 @@
 import Layout from "../components/layout/Layout";
 import Link from "next/link";
 
-export default function Search({ movies }) {
+export default function Search({ movies, query }) {
   return (
-    <Layout>
+    <Layout q={query}>
       <div className="movieContainer">
         {movies.results.map((movie, idx) => {
           return (
@@ -30,6 +30,6 @@ export async function getServerSideProps(context) {
   const response = await fetch(call);
   const movies = await response.json();
   return {
-    props: { movies }, // will be passed to the page component as props
+    props: { movies, query }, // will be passed to the page component as props
   };
 }
