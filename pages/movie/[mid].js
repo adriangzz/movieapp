@@ -2,7 +2,6 @@ import React from "react";
 import Layout from "../../components/layout/Layout";
 
 export default function Movie({ movie }) {
-  console.log(movie);
   return (
     <Layout>
       <div className="movieIndividual">
